@@ -1,5 +1,5 @@
 NAME = push_swap
-SRC = src/main.c
+SRC = src/main.c src/push_swap_utils.c
 OBJ = $(SRC:.c=.o)
 LIB_PATH = include/libft/
 LIBFT = include/libft/libft.a
