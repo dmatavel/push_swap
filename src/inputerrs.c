@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   inputerrs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:42:49 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/10 13:01:12 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:55:50 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,23 @@ void	put_stderror(void)
 	ft_putstr_fd("Error\n", 2);
 }
 
-int	only_integers(int n, char **arg)
+int	only_digits(char **s)
 {
 	int	i;
+	int	j;
 
 	i = 1;
-	while ((n - 1) != 0)
-	{
-		if (!only_digits(arg[i]))
-			return (FALSE);
-		if (int_off_limits(arg[i]))
-			return (FALSE);
-		i++;
-		n--;
-	}
-	return (TRUE);
-}
-
-int	only_digits(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] == '-')
-		i++;
+	j = 0;
 	while (s[i])
 	{
-		if (!ft_isdigit(s[i]))
-			return (FALSE);
+		while (s[i][j] == '-')
+			j++;
+		while (s[i][j])
+		{
+			if (!ft_isdigit(s[i][j]))
+				return (FALSE);
+			j++;
+		}
 		i++;
 	}
 	return (TRUE);
@@ -79,4 +68,30 @@ int	has_dup_elements(int size, int *array)
 		j = i + 1;
 	}
 	return (FALSE);
+}
+
+int	has_invalid_integers(int n, char **arg)
+{
+	int	i;
+	int	j;
+	int	*array;
+
+	i = 1;
+	j = 0;
+	while ((n - 1) > j)
+	{
+		if (!only_digits(arg))
+			return (FALSE);
+		if (int_off_limits(arg[i]))
+			return (FALSE);
+		j++;
+		i++;
+	}
+	array = ft_stoarr((n - 1), arg);
+	if (has_dup_elements((n - 1), array))
+	{
+		free(array);
+		return (FALSE);
+	}
+	return (TRUE);
 }

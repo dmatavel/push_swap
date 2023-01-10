@@ -1,6 +1,7 @@
 NAME = push_swap
-SRC = src/main.c src/push_swap_utils.c
-OBJ = $(SRC:.c=.o)
+SRC_PATH = src
+SRCS = $(shell find $(SRC_PATH) -name "*.c")
+OBJ = $(SRCS:.c=.o)
 LIB_PATH = include/libft/
 LIBFT = include/libft/libft.a
 CC = cc
