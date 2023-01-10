@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:42:49 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/10 14:55:50 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:19:02 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ int	has_invalid_integers(int n, char **arg)
 		free(array);
 		return (FALSE);
 	}
+	free(array);
 	return (TRUE);
 }
