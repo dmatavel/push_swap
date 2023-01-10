@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:42:49 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/07 19:21:23 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:01:12 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	only_integers(int n, char **arg)
 	{
 		if (!only_digits(arg[i]))
 			return (FALSE);
-		if (off_int_limits(arg[i]))
+		if (int_off_limits(arg[i]))
 			return (FALSE);
 		i++;
 		n--;
@@ -50,7 +50,7 @@ int	only_digits(char *s)
 	return (TRUE);
 }
 
-int	off_int_limits(char	*s)
+int	int_off_limits(char	*s)
 {
 	long	n;
 
@@ -59,4 +59,24 @@ int	off_int_limits(char	*s)
 		return (TRUE);
 	else
 		return (FALSE);
+}
+
+int	has_dup_elements(int size, int *array)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = (i + 1);
+	while (i < (size - 1))
+	{
+		while (j < (size))
+		{
+			if (array[i] == array[j++])
+				return (TRUE);
+		}
+		i++;
+		j = i + 1;
+	}
+	return (FALSE);
 }
