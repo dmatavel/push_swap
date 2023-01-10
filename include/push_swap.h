@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:48:02 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/07 19:23:23 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:03:55 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	put_stderror(void);
 int		only_integers(int n, char **arg);
 int		only_digits(char *s);
-int		off_int_limits(char	*s);
+int		int_off_limits(char	*s);
+int		has_dup_elements(int size, int *array);
 
 #endif
