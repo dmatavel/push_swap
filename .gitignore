@@ -53,3 +53,10 @@ dkms.conf
 
 # Vscode
 .vscode/
+
+#Vim
+*.swp
+
+# Valgrind
+
+*.dSYM
