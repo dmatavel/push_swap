@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:42:49 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/10 18:19:02 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:15:20 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	only_digits(char **s)
 	int	j;
 
 	i = 1;
-	j = 0;
 	while (s[i])
 	{
-		while (s[i][j] == '-')
+		j = 0;
+		if (s[i][j] == '-')
 			j++;
 		while (s[i][j])
 		{
