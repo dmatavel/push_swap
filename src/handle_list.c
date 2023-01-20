@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:11:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/19 17:26:10 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:24:01 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_lst	*lstnew(int content)
 		return (NULL);
 	new->data = content;
 	new->next = NULL;
+	new->before = NULL;
 	return (new);
 }
 

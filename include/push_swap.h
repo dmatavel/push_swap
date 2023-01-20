@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:48:02 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/19 18:03:13 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/19 23:38:34 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ t_lst   *create_stack_a(int size, int *array, t_lst **lst);
 t_lst   *create_stack_b(int size, int content, t_lst **lst);
 t_lst	*sa(t_lst *stack_a);
 t_lst	*rra(t_lst *stack_a);
+t_lst   *ft_swaplst(t_lst *lst);
+t_lst   *ft_rotate_lst(t_lst *lst);
+t_lst   *ft_reverse_rotate_lst(t_lst *lst);
 
 #endif
