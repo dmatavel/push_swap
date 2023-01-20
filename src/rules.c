@@ -6,24 +6,24 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/20 12:19:11 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:30:13 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_lst	*ft_lstswap(t_lst *lst)
+t_list	*ft_lstswap(t_list *lst)
 {
-	t_lst	*tmp;
+	t_list	*tmp;
 
 	if (!lst)
 		return (lst);
-	tmp = lstnew(0);
-	if (lst->data > lst->next->data)
+	tmp = ft_lstnew(0);
+	if (lst->content > lst->next->content)
 	{
-		tmp->data = lst->data;
-		lst->data = lst->next->data;
-		lst->next->data = tmp->data;
+		tmp->content = lst->content;
+		lst->content = lst->next->content;
+		lst->next->content = tmp->content;
 	}
 	free(tmp);
 	return (lst);

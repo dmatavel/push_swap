@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:11:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/20 13:06:24 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:48:34 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,17 @@ int	lstsize(t_lst *lst)
 	return (i);
 }
 
-void	print_lst(t_lst *lst)
+void	print_lst(t_list *lst)
 {
-	t_lst	*tmp;
-
+	t_list	*tmp;
+	
 	tmp = lst;
 	while (tmp != NULL)
 	{
 		if (tmp->next == NULL)
-			ft_printf("%d\n", tmp->data);
+			ft_printf("%d\n", *(int *)tmp->content);
 		else
-			ft_printf("%d, ", tmp->data);
+			ft_printf("%d, ", *(int *)tmp->content);
 		tmp = tmp->next;
 	}
 }

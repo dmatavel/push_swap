@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:48:02 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/20 13:14:55 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:30:52 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int		has_invalid_integers(int n, char **arg);
 void	put_stderror(void);
 void	lstadd_front(t_lst **lst, t_lst *new);
 void	lstadd_back(t_lst **lst, t_lst *new);
-void	print_lst(t_lst *lst);
+void	print_lst(t_list *lst);
 t_lst	*lstnew(int content);
-t_lst	*sort_two(t_lst *stack_a);
-t_lst	*create_stack_a(int size, int *array, t_lst **lst);
+t_list	*sort_two(t_list *stack_a);
+t_list	*create_stack_a(int size, int *array, t_list **list);
 t_lst	*create_stack_b(int size, int content, t_lst **lst);
 t_lst	*sa(t_lst *stack_a);
 t_lst	*rra(t_lst *stack_a);
-t_lst	*ft_lstswap(t_lst *lst);
+t_list	*ft_lstswap(t_list *lst);
 t_lst	*ft_rotate_lst(t_lst *lst);
 t_lst	*ft_reverse_rotate_lst(t_lst *lst);
 
