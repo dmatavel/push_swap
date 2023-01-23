@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/20 14:30:13 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:49:44 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ t_list	*ft_lstswap(t_list *lst)
 	return (lst);
 }
 
-t_lst	*ft_rotate_lst(t_lst *lst)
+t_list	*ft_rotate_lst(t_list *lst)
 {
-	t_lst	*last;
-	t_lst	*tmp;
+	t_list	*last;
+	t_list	*tmp;
 
 	if (!lst)
 		return (lst);
@@ -45,14 +45,15 @@ t_lst	*ft_rotate_lst(t_lst *lst)
 	last->next = tmp;
 	last = tmp;
 	tmp = lst;
+	ft_putstr_fd("ra\n", 1);
 	return (lst);
 }
 
-t_lst	*ft_reverse_rotate_lst(t_lst *lst)
+t_list	*ft_reverse_rotate_lst(t_list *lst)
 {
-	t_lst	*last;
-	t_lst	*last_prev;
-	t_lst	*tmp;
+	t_list	*last;
+	t_list	*last_prev;
+	t_list	*tmp;
 	int		size;
 
 	if (!lst)
@@ -62,11 +63,8 @@ t_lst	*ft_reverse_rotate_lst(t_lst *lst)
 	last = lst;
 	last_prev = last;
 	while (last->next != NULL)
-	{
 		last = last->next;
-		size++;
-	}
-	size -= 1;
+	size = ft_lstsize(lst) - 2;
 	while (size--)
 		last_prev = last_prev->next;
 	last_prev->next = NULL;
@@ -74,5 +72,6 @@ t_lst	*ft_reverse_rotate_lst(t_lst *lst)
 	last->next = tmp;
 	last = tmp;
 	tmp = lst;
+	ft_putstr_fd("ra\n", 1);
 	return (lst);
 }

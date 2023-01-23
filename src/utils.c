@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackinit.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:38:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/23 16:57:53 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/01/23 15:25:23 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_list	*create_stack_a(int size, int *array, t_list **lst)
+int	is_sorted(int *array, int size)
 {
-	t_list	*tmp;
-	int		i;
+	int	i;
 
 	i = 0;
-	tmp = *lst;
-	while (0 < size--)
-		ft_lstadd_back(&tmp, ft_lstnew(array[i++]));
-	return (tmp);
+	while (i < (size - 1))
+	{
+		if (array[i] < array[i + 1])
+			i++;
+		else
+			return (FALSE);
+	}
+	return (TRUE);
 }
-/*
-t_lst	*create_stack_b(int size, int content, t_lst **lst)
-{
-	while (0 < size--)
-		lstadd_back(lst, lstnew(content));
-	return (*lst);
-}
-*/

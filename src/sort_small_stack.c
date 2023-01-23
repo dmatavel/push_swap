@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackinit.c                                        :+:      :+:    :+:   */
+/*   sort_small_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:38:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/23 16:57:53 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/01/23 10:39:32 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/01/23 16:40:57 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_list	*create_stack_a(int size, int *array, t_list **lst)
+void	sort_small_stack(t_list **stack_a, int size)
 {
 	t_list	*tmp;
-	int		i;
+	t_list	*a;
+	t_list	*b;
+	t_list	*c;
 
-	i = 0;
-	tmp = *lst;
-	while (0 < size--)
-		ft_lstadd_back(&tmp, ft_lstnew(array[i++]));
-	return (tmp);
+	tmp = *stack_a;
+	a = tmp;
+	b = tmp->next;
+	c = tmp->next->next;
+	if (size == 2)
+		*stack_a = sort_two(a);
+	else if (size == 3)
+		*stack_a = sort_three(a, b, c);
+	else if (size == 4)
+		*stack_a = sort_four(tmp);
 }
-/*
-t_lst	*create_stack_b(int size, int content, t_lst **lst)
-{
-	while (0 < size--)
-		lstadd_back(lst, lstnew(content));
-	return (*lst);
-}
-*/

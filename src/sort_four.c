@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackinit.c                                        :+:      :+:    :+:   */
+/*   sort_four.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:38:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/23 16:57:53 by dmatavel         ###   ########.fr       */
+/*   Created: 2023/01/23 16:22:12 by dmatavel          #+#    #+#             */
+/*   Updated: 2023/01/23 17:08:49 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_list	*create_stack_a(int size, int *array, t_list **lst)
+t_list	*sort_four(t_list *stack)
 {
 	t_list	*tmp;
-	int		i;
+	t_list	*stack_b;
+	int		min;
+	int		key;
 
-	i = 0;
-	tmp = *lst;
-	while (0 < size--)
-		ft_lstadd_back(&tmp, ft_lstnew(array[i++]));
-	return (tmp);
+	stack_b = ft_lstnew(0);
+	min = 0;
+	//Find the min integer in stack a and push to stack b
+	ft_printlst(stack_b);
+	tmp = (stack);
+	while (tmp->next)
+	{
+		if (min < tmp->data)
+			min = tmp->data;
+		tmp = tmp->next;
+		key++;
+	}
+	return (stack);
 }
-/*
-t_lst	*create_stack_b(int size, int content, t_lst **lst)
-{
-	while (0 < size--)
-		lstadd_back(lst, lstnew(content));
-	return (*lst);
-}
-*/
