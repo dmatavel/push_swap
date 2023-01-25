@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/23 15:49:44 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:28:46 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,16 @@ t_list	*ft_reverse_rotate_lst(t_list *lst)
 	ft_putstr_fd("ra\n", 1);
 	return (lst);
 }
+
+/* contruction
+
+void	pushb(t_list *stack_a)
+{
+	t_list	*tmp;
+	if (!a || !b)
+		return ;
+	tmp = ft_lstnew(a->content)
+	//remover o primeiro node de a
+	b = ft_lstadd_front()
+}
+*/
