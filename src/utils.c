@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/25 15:48:35 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:31:58 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,42 +27,78 @@ int	is_sorted(int *array, int size)
 	return (TRUE);
 }
 
-int	find_min_element(t_list *lst)
+int	find_max_element(t_list **lst)
 {
-	int		n;
-	int		i;
-	int		j;
+	int		max;
+	int		index;
 	t_list	*tmp;
 	
 	if (!lst)
 		return (0);
-	n = lst->content;
-	i = 0;
-	j = 0;
-	tmp = lst;
-	while (tmp->next)
+	tmp = *lst;
+	max = tmp->content;
+	while (1)
 	{
-		if (n > tmp->content)
-		{
-			n = tmp->content;
-			i++;
-		}
+		if (tmp->content > max)
+			max = tmp->content;
+		if (!tmp->next)
+			break;
 		tmp = tmp->next;
-		j++;
 	}
-	return (i - j);
+	tmp = *lst;
+	index = 0;
+	while (tmp->content != max)
+	{
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
 }
 
-t_list	*remove_first_node(t_list *lst)
+int	find_min_element(t_list **lst)
+{
+	int		min;
+	int		index;
+	t_list	*tmp;
+	
+	if (!lst)
+		return (0);
+	tmp = *lst;
+	min = tmp->content;
+	while (1)
+	{
+		if (tmp->content < min)
+			min = tmp->content;
+		if (!tmp->next)
+			break;
+		tmp = tmp->next;
+	}
+	tmp = *lst;
+	index = 0;
+	while (tmp->content != min)
+	{
+		tmp = tmp->next;
+		index++;
+	}
+	return (index);
+}
+
+void	remove_first_node(t_list *lst)
 {
 	t_list	*tmp;
-
+	int		size;
+	
 	if (!lst)
-		return (NULL);
+		return ;
 	tmp = lst;
-	lst = lst->next;
-	tmp->content = 0;
-	free(tmp);
-	tmp = NULL;
-	return (lst);
+	while (tmp->next != NULL)
+	{	
+		tmp->content = tmp->next->content;
+		tmp = tmp->next;
+	}
+	size = ft_lstsize(lst) - 2;
+	tmp = lst;
+	while(size--)
+		tmp = tmp->next;
+	tmp->next = NULL;
 }

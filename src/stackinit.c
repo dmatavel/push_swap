@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:38:31 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/23 16:57:53 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:55:30 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ t_list	*create_stack_a(int size, int *array, t_list **lst)
 		ft_lstadd_back(&tmp, ft_lstnew(array[i++]));
 	return (tmp);
 }
-/*
-t_lst	*create_stack_b(int size, int content, t_lst **lst)
+
+t_list	*create_stack_b(int size, int content, t_list **lst)
 {
 	while (0 < size--)
-		lstadd_back(lst, lstnew(content));
+		ft_lstadd_back(lst, ft_lstnew(content));
 	return (*lst);
 }
-*/

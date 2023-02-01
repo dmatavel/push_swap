@@ -6,18 +6,21 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:43:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/25 15:47:57 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:36:38 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdio.h> //Remove before push
 
 int	main(int argc, char **argv)
 {
 	int		*array;
 	t_list	*stack_a;
+	t_list	*stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc == 1)
 		exit (EXIT_SUCCESS);
 	if (has_invalid_integers(argc, argv) != TRUE)
@@ -29,10 +32,11 @@ int	main(int argc, char **argv)
 	if (is_sorted(array, (argc - 1)))
 		exit (EXIT_SUCCESS);
 	stack_a = create_stack_a((argc - 1), array, &stack_a);
-	ft_printf("min = %d\n", find_min_element(stack_a));
+	stack_b = create_stack_b((argc - 1), 0, &stack_b);
 	free(array);
 	if ((argc - 1) <= 5)
-		sort_small_stack(&stack_a, (argc - 1));
+		sort_small_stack(&stack_a, &stack_b, (argc - 1));
 	ft_printlst(stack_a);
+	ft_printlst(stack_b);
 	return (EXIT_SUCCESS);
 }

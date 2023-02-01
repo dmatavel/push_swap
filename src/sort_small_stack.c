@@ -6,35 +6,24 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:39:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/25 15:46:19 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:38:58 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 static t_list  *sort_two(t_list *stack_a);
-static t_list  *sort_three(t_list *a, t_list *b, t_list *c);
-static t_list  *sort_four(t_list *a, t_list *b, t_list *c, t_list *d);
+static t_list  *sort_three(t_list **list);
+static t_list  *sort_four(t_list **stack_a, t_list **stack_b);
 
-void	sort_small_stack(t_list **stack_a, int size)
+void	sort_small_stack(t_list **stack_a, t_list **stack_b, int size)
 {
-	t_list	*tmp;
-	t_list	*a;
-	t_list	*b;
-	t_list	*c;
-	t_list	*d;
-
-	tmp = *stack_a;
-	a = tmp;
-	b = tmp->next;
-	c = tmp->next->next;
-	d = tmp->next->next->next;
 	if (size == 2)
-		*stack_a = sort_two(a);
+		*stack_a = sort_two(*stack_a);
 	else if (size == 3)
-		*stack_a = sort_three(a, b, c);
+		*stack_a = sort_three(stack_a);
 	else if (size == 4)
-		*stack_a = sort_four(a, b, c, d);
+		*stack_a = sort_four(stack_a, stack_b);
 }
 
 static t_list  *sort_two(t_list *stack_a)
@@ -44,50 +33,59 @@ static t_list  *sort_two(t_list *stack_a)
 	return (stack_a);
 }
 
-static t_list  *sort_three(t_list *a, t_list *b, t_list *c)
+static t_list  *sort_three(t_list **lst)
 {
-     if (a->content > b->content && b->content > c->content)
-     {
-         a = sort_two(a);
-         a = ft_reverse_rotate_lst(a);
-     }
-     else if (a->content > b->content && b->content < c->content
-         && a->content > c->content)
-     {
-         a = ft_rotate_lst(a);
-         a = sort_two(a);
-     }
-     else if (a->content < b->content && b->content > c->content
-         && a->content > c->content)
-          a = ft_reverse_rotate_lst(a);
-     else if (a->content < b->content && b->content > c->content
-         && a->content < c->content)
-	 {
-         a = ft_reverse_rotate_lst(a);
-         a = sort_two(a);
-     }
-     else if (a->content > b->content && b->content < c->content
-         && a->content < c->content)
-         a = sort_two(a);
-	 return (a);
+	int		index_min;
+	int		index_max;
+
+	index_min = find_min_element(lst);
+	index_max = find_max_element(lst);
+	if (index_min == 0)
+	{
+		*lst = ft_reverse_rotate_lst(*lst);
+		*lst = ft_lstswap(*lst);
+	}
+	else if (index_min == 1 && index_max == 2)
+		*lst = ft_lstswap(*lst);	
+	else if (index_max == 1 && index_min == 2)
+		*lst = ft_reverse_rotate_lst(*lst);
+	else if (index_max == 0 && index_min == 1)
+	{
+		*lst = ft_lstswap(*lst);	
+		*lst = ft_reverse_rotate_lst(*lst);
+	}
+	else
+		*lst = ft_rotate_lst(*lst);
+	
+
+	return (*lst);
 }
 
-static t_list  *sort_four(t_list *a, t_list *b, t_list *c, t_list *d)
+static t_list  *sort_four(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
-
-	t_list  *stack_b;
-
-	stack_b = NULL;	
-	i = find_min_element(a);
-	ft_printlst(a);
-	ft_printf("i = %d\n", i);
-	if (i == 0)
-	{
-		ft_lstadd_front(&stack_b, a);
-		stack_b->next = NULL;
-		ft_printlst(stack_b);
+	int		index;
+	t_list	*head;
+	t_list	*head2;
+	
+	head = *stack_a;
+	head2 = *stack_b;
+	
+	index = find_min_element(&head);
+	if (index == 1)
+		head = ft_rotate_lst(head);
+	else if (index == 2)
+	{	
+		head = ft_reverse_rotate_lst(head);
+		head = ft_reverse_rotate_lst(head);
 	}
-		a = sort_three(b, c, d);
-	return (a);
+	else if (index == 3)
+	{	
+		head = ft_reverse_rotate_lst(head);
+		head = ft_reverse_rotate_lst(head);
+		head = ft_rotate_lst(head);
+	}
+	push_b(head, head2);
+	head = sort_three(&head);
+	push_a(&head, &head2);
+	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/25 15:28:46 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:38:00 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,26 @@ t_list	*ft_reverse_rotate_lst(t_list *lst)
 	last->next = tmp;
 	last = tmp;
 	tmp = lst;
-	ft_putstr_fd("ra\n", 1);
+	ft_putstr_fd("rra\n", 1);
 	return (lst);
 }
 
-/* contruction
-
-void	pushb(t_list *stack_a)
+void	push_a(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*new;
 	t_list	*tmp;
-	if (!a || !b)
-		return ;
-	tmp = ft_lstnew(a->content)
-	//remover o primeiro node de a
-	b = ft_lstadd_front()
+
+	tmp = *stack_b;	
+	new = ft_lstnew(tmp->content);
+	new->next = *stack_a;
+	*stack_a = new;
+	ft_putstr_fd("pa\n", 1);
 }
-*/
+
+void	push_b(t_list *stack_a, t_list *stack_b)
+{
+	stack_b->content = stack_a->content;
+	remove_first_node(stack_a);
+	ft_putstr_fd("pb\n", 1);
+}
+
