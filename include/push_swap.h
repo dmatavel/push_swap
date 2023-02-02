@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:48:02 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/01 15:59:29 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:31:56 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ t_list	*create_stack_b(int size, int content, t_list **lst);
 t_list	*ft_lstswap(t_list *lst);
 t_list	*ft_rotate_lst(t_list *lst);
 t_list	*ft_reverse_rotate_lst(t_list *lst);
-int find_min_element(t_list **lst);
-void  remove_first_node(t_list *head);
-void    push_a(t_list **stack_a, t_list **stack_b);
-void    push_b(t_list *stack_a, t_list *stack_b);
+int		find_min_element(t_list **lst);
+void	remove_first_node(t_list *head);
+void	push_a(t_list **stack_a, t_list **stack_b);
+void	push_b(t_list **stack_a, t_list **stack_b);
 int		find_max_element(t_list **lst);
 
 #endif

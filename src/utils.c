@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/01 14:31:58 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 10:55:02 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	find_max_element(t_list **lst)
 	int		max;
 	int		index;
 	t_list	*tmp;
-	
+
 	if (!lst)
 		return (0);
 	tmp = *lst;
@@ -42,7 +42,7 @@ int	find_max_element(t_list **lst)
 		if (tmp->content > max)
 			max = tmp->content;
 		if (!tmp->next)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	tmp = *lst;
@@ -60,7 +60,7 @@ int	find_min_element(t_list **lst)
 	int		min;
 	int		index;
 	t_list	*tmp;
-	
+
 	if (!lst)
 		return (0);
 	tmp = *lst;
@@ -70,7 +70,7 @@ int	find_min_element(t_list **lst)
 		if (tmp->content < min)
 			min = tmp->content;
 		if (!tmp->next)
-			break;
+			break ;
 		tmp = tmp->next;
 	}
 	tmp = *lst;
@@ -87,7 +87,7 @@ void	remove_first_node(t_list *lst)
 {
 	t_list	*tmp;
 	int		size;
-	
+
 	if (!lst)
 		return ;
 	tmp = lst;
@@ -98,7 +98,7 @@ void	remove_first_node(t_list *lst)
 	}
 	size = ft_lstsize(lst) - 2;
 	tmp = lst;
-	while(size--)
+	while (size--)
 		tmp = tmp->next;
 	tmp->next = NULL;
 }

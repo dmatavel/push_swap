@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/02 10:39:33 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:33:11 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,23 @@ void	push_a(t_list **stack_a, t_list **stack_b)
 	t_list	*new;
 	t_list	*tmp;
 
-	tmp = *stack_b;	
+	tmp = *stack_b;
 	new = ft_lstnew(tmp->content);
 	new->next = *stack_a;
 	*stack_a = new;
 	ft_putstr_fd("pa\n", 1);
+	remove_first_node(*stack_b);
 }
 
-void	push_b(t_list *stack_a, t_list *stack_b)
+void	push_b(t_list **stack_a, t_list **stack_b)
 {
-	stack_b->content = stack_a->content;
-	remove_first_node(stack_a);
-	ft_putstr_fd("pb\n", 1);
-}
+	t_list	*new;
+	t_list	*tmp;
 
+	tmp = *stack_a;
+	new = ft_lstnew(tmp->content);
+	new->next = *stack_b;
+	*stack_b = new;
+	ft_putstr_fd("pb\n", 1);
+	remove_first_node(*stack_a);
+}
