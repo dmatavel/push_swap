@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:48:02 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/02 11:31:56 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:39:35 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	remove_first_node(t_list *head);
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 int		find_max_element(t_list **lst);
+void	create_index(t_list **stack_a);
+int		is_sorted_lst(t_list **stack_a);
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

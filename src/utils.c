@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/02 10:55:02 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:06:53 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@ int	is_sorted(int *array, int size)
 	{
 		if (array[i] < array[i + 1])
 			i++;
+		else
+			return (FALSE);
+	}
+	return (TRUE);
+}
+
+int	is_sorted_lst(t_list **stack_a)
+{
+	t_list *tmp;
+
+	tmp = *stack_a;
+	while (tmp->next)
+	{
+		if (tmp->content < tmp->next->content)
+			tmp = tmp->next;
 		else
 			return (FALSE);
 	}
