@@ -5,7 +5,7 @@ OBJ = $(SRCS:.c=.o)
 LIB_PATH = include/libft/
 LIBFT = include/libft/libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@ $(LIBFT)

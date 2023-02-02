@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/01 16:38:00 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 10:39:33 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_list	*ft_lstswap(t_list *lst)
 		lst->next->content = tmp->content;
 	}
 	free(tmp);
+	ft_putstr_fd("sa\n", 1);
 	return (lst);
 }
 

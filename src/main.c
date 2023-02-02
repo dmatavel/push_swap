@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:43:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/01 16:36:38 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 10:40:28 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	free(array);
 	if ((argc - 1) <= 5)
 		sort_small_stack(&stack_a, &stack_b, (argc - 1));
-	ft_printlst(stack_a);
-	ft_printlst(stack_b);
+	//ft_printlst(stack_a);
+	//ft_printlst(stack_b);
 	return (EXIT_SUCCESS);
 }

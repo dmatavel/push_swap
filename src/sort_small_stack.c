@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:39:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/01 16:38:58 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/02 10:44:26 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static t_list  *sort_two(t_list *stack_a);
 static t_list  *sort_three(t_list **list);
 static t_list  *sort_four(t_list **stack_a, t_list **stack_b);
+static t_list  *sort_five(t_list **stack_a, t_list **stack_b);
 
 void	sort_small_stack(t_list **stack_a, t_list **stack_b, int size)
 {
@@ -29,7 +30,6 @@ void	sort_small_stack(t_list **stack_a, t_list **stack_b, int size)
 static t_list  *sort_two(t_list *stack_a)
 {
 	stack_a = ft_lstswap(stack_a);
-	ft_putstr_fd("sa\n", 1);
 	return (stack_a);
 }
 
@@ -49,15 +49,13 @@ static t_list  *sort_three(t_list **lst)
 		*lst = ft_lstswap(*lst);	
 	else if (index_max == 1 && index_min == 2)
 		*lst = ft_reverse_rotate_lst(*lst);
-	else if (index_max == 0 && index_min == 1)
+	else if (index_max == 0 && index_min == 2)
 	{
 		*lst = ft_lstswap(*lst);	
 		*lst = ft_reverse_rotate_lst(*lst);
 	}
 	else
 		*lst = ft_rotate_lst(*lst);
-	
-
 	return (*lst);
 }
 
@@ -72,20 +70,18 @@ static t_list  *sort_four(t_list **stack_a, t_list **stack_b)
 	
 	index = find_min_element(&head);
 	if (index == 1)
-		head = ft_rotate_lst(head);
+		head = ft_lstswap(head);
 	else if (index == 2)
 	{	
 		head = ft_reverse_rotate_lst(head);
 		head = ft_reverse_rotate_lst(head);
 	}
 	else if (index == 3)
-	{	
 		head = ft_reverse_rotate_lst(head);
-		head = ft_reverse_rotate_lst(head);
-		head = ft_rotate_lst(head);
-	}
 	push_b(head, head2);
 	head = sort_three(&head);
 	push_a(&head, &head2);
 	return (head);
 }
+
+static t_list  *sort_five(t_list **stack_a, t_list **stack_b);
