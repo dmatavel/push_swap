@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/02 17:14:04 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:49:32 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,46 @@ t_list	*ft_reverse_rotate_lst(t_list *lst)
 
 void	push_a(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*new;
+	
+	new = ft_lstnew((*stack_b)->content);
+	new->index = (*stack_b)->index;
+	new->next = *stack_a;
+	*stack_a = new;
+	ft_putstr_fd("pa\n", 1);
+	remove_first_node(stack_b);
+}
+	/*{
 	t_list	*tmp;
 	t_list	*tmp2;
 
-	if (*stack_b == NULL || stack_b == NULL)
+	if (*stack_b == NULntent: 3
+index: 1
+content: 2
+index: 0
+Stack_b
+content: 0L || stack_b == NULL)
 		return ;
 	tmp = *stack_b;
 	tmp2 = (*stack_b)->next;
 	tmp->next = *stack_b;
 	*stack_b = tmp2;
-	*stack_a = tmp;
-	ft_putstr_fd("pb\n", 1);
-}
+	*stack_a = tmp;*/
+//}
 
 void	push_b(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
+	t_list	*new;
+	
+	new = ft_lstnew((*stack_a)->content);
+	new->index = (*stack_a)->index;
+	new->next = *stack_b;
+	*stack_b = new;
+	ft_putstr_fd("pb\n", 1);
+	remove_first_node(stack_a);
+}
+	//pop_a;
+	/*t_list	*tmp;
 	t_list	*tmp2;
 
 	if (*stack_a == NULL || stack_a == NULL)
@@ -104,5 +128,4 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	tmp->next = *stack_b;
 	*stack_a = tmp2;
 	*stack_b = tmp;
-	ft_putstr_fd("pb\n", 1);
-}
+	ft_putstr_fd("pb\n", 1);*/

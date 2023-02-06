@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/02 15:06:53 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:37:13 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,17 @@ int	find_min_element(t_list **lst)
 	return (index);
 }
 
-void	remove_first_node(t_list *lst)
+void	remove_first_node(t_list **lst)
 {
 	t_list	*tmp;
+
+	tmp = *lst;
+	(*lst)->content = 0;
+	(*lst)->index = 0;
+	*lst = (*lst)->next;
+	free(tmp);
+}
+/*	t_list	*tmp;
 	int		size;
 
 	if (!lst)
@@ -116,4 +124,4 @@ void	remove_first_node(t_list *lst)
 	while (size--)
 		tmp = tmp->next;
 	tmp->next = NULL;
-}
+}*/
