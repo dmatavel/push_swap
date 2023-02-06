@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/06 10:37:13 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:39:25 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_sorted(int *array, int size)
 
 int	is_sorted_lst(t_list **stack_a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack_a;
 	while (tmp->next)
@@ -108,20 +108,3 @@ void	remove_first_node(t_list **lst)
 	*lst = (*lst)->next;
 	free(tmp);
 }
-/*	t_list	*tmp;
-	int		size;
-
-	if (!lst)
-		return ;
-	tmp = lst;
-	while (tmp->next != NULL)
-	{	
-		tmp->content = tmp->next->content;
-		tmp = tmp->next;
-	}
-	size = ft_lstsize(lst) - 2;
-	tmp = lst;
-	while (size--)
-		tmp = tmp->next;
-	tmp->next = NULL;
-}*/

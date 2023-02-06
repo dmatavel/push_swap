@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:00:34 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/06 11:22:34 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:21:33 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,17 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 	int	size;
 
 	bit = 0;
+	create_index(stack_a);
 	while (!is_sorted_lst(stack_a))
 	{
 		size = ft_lstsize(*stack_a);
-//		ft_printf("pegou o tamanho da lista\n");
 		while (size--)
 		{
-//			ft_printf("entrou no 1o while\n");
 			if ((((*stack_a)->index >> bit) & 1) == 1)
 				*stack_a = ft_rotate_lst(*stack_a);
 			else
 				push_b(stack_a, stack_b);
 		}
-//		ft_printf("saiu do 1o while\n");
 		size = ft_lstsize(*stack_b);
 		while (size--)
 		{
@@ -57,8 +55,6 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 				break ;
 			push_a(stack_a, stack_b);
 		}
-//		ft_printf("saiu do 2o while\n");
 		bit++;
-//		ft_printf("bit: %d", bit);
 	}
 }
