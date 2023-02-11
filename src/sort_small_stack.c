@@ -6,7 +6,7 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:39:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/02 11:55:48 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/11 07:46:50 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static t_list	*sort_three(t_list **lst)
 	int		index_min;
 	int		index_max;
 
+	if (is_sorted_lst(lst))
+		return (*lst);
 	index_min = find_min_element(lst);
 	index_max = find_max_element(lst);
 	if (index_min == 0)
@@ -69,6 +71,8 @@ static t_list	*sort_four(t_list **stack_a, t_list **stack_b)
 
 	head = *stack_a;
 	head2 = *stack_b;
+	if (is_sorted_lst(stack_a))
+		return (*stack_a);
 	index = find_min_element(&head);
 	if (index == 1)
 		head = ft_lstswap(head);
