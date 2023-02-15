@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:25:03 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/06 16:39:25 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:28:03 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	is_sorted(int *array, int size)
 {
@@ -24,6 +24,7 @@ int	is_sorted(int *array, int size)
 		else
 			return (FALSE);
 	}
+	free(array);
 	return (TRUE);
 }
 

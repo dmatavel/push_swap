@@ -1,9 +1,9 @@
 NAME = push_swap
-SRC_PATH = src
+SRC_PATH = .
 SRCS = $(shell find $(SRC_PATH) -name "*.c")
 OBJ = $(SRCS:.c=.o)
-LIB_PATH = include/libft/
-LIBFT = include/libft/libft.a
+LIB_PATH = libft/
+LIBFT = libft/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -16,7 +16,7 @@ $(LIBFT):
 all: $(NAME)
 
 clean:
-	rm -f src/*.o
+	rm -f *.o
 	make -C $(LIB_PATH) clean
 
 fclean: clean

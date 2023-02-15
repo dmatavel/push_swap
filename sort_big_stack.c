@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:00:34 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/06 16:21:33 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:43:20 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	create_index(t_list **stack_a)
 {

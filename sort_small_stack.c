@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 10:39:32 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/11 07:46:50 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:11:42 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 static t_list	*sort_two(t_list *stack_a);
 static t_list	*sort_three(t_list **list);
@@ -69,10 +69,10 @@ static t_list	*sort_four(t_list **stack_a, t_list **stack_b)
 	t_list	*head;
 	t_list	*head2;
 
-	head = *stack_a;
-	head2 = *stack_b;
 	if (is_sorted_lst(stack_a))
 		return (*stack_a);
+	head = *stack_a;
+	head2 = *stack_b;
 	index = find_min_element(&head);
 	if (index == 1)
 		head = ft_lstswap(head);

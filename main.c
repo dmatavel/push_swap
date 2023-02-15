@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:43:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/06 16:40:00 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:28:24 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {

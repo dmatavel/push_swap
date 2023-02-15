@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:49:40 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/02/06 16:31:55 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:43:07 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 t_list	*ft_lstswap(t_list *lst)
 {

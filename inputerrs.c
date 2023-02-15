@@ -6,11 +6,11 @@
 /*   By: dmatavel <dmatavel@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:42:49 by dmatavel          #+#    #+#             */
-/*   Updated: 2023/01/19 14:15:20 by dmatavel         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:05:36 by dmatavel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void	put_stderror(void)
 {
@@ -26,8 +26,10 @@ int	only_digits(char **s)
 	while (s[i])
 	{
 		j = 0;
-		if (s[i][j] == '-')
+		if ((s[i][j] == '-' || s[i][j] == '+') && (s[i][j + 1] != '0'))
 			j++;
+		if (s[i][j] == '\0')
+			return (FALSE);
 		while (s[i][j])
 		{
 			if (!ft_isdigit(s[i][j]))
@@ -43,6 +45,8 @@ int	int_off_limits(char	*s)
 {
 	long	n;
 
+	if (ft_strlen(s) > 11)
+		return (TRUE);
 	n = ft_atol(s);
 	if (n > INT_MAX || n < INT_MIN)
 		return (TRUE);
